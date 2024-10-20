@@ -6,5 +6,10 @@ import (
 )
 
 func CreateStoreTable(db *gorm.DB) error {
-	return db.AutoMigrate(&model.Store{})
+	// AutoMigrate for Store, Admin, and User models
+	return db.AutoMigrate(
+		&model.Store{},
+		&model.Admin{},
+		&model.User{},
+	)
 }
